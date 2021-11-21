@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Movie {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     @NotNull(message = "Must provide description")
     private String title;
     private String genre;
