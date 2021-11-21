@@ -1,2 +1,4 @@
-package com.example.MovieJoe.entities;public class User {
+package com.example.MovieJoe.entities;
+
+public class User {
 }
