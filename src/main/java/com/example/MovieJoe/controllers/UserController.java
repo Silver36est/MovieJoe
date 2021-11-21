@@ -21,13 +21,12 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PostMapping("/user/update/{id}") //update user info
-    public User updateUser(@PathVariable Long id, User user){
-        User userToUpdate = userRepository.findById(id).orElseThrow();
-        userToUpdate.setUserName(user.getUserName());
-        userToUpdate.setPassword(user.getPassword());
-        userRepository.save(user);
-        return user;
+    @PutMapping("/user/update/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+        User foundUser = userRepository.findById(id).orElseThrow();
+        foundUser.setUserName(user.getUserName());
+        foundUser.setPassword(user.getPassword());
+        return userRepository.save(foundUser);
     }
 
 
