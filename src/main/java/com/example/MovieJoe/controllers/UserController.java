@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/api")
 @ResponseBody
@@ -21,12 +23,23 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PutMapping("/user/update/{id}")
+    @PutMapping("/user/update/{id}") //update user info
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         User foundUser = userRepository.findById(id).orElseThrow();
         foundUser.setUserName(user.getUserName());
         foundUser.setPassword(user.getPassword());
         return userRepository.save(foundUser);
+    }
+
+    @DeleteMapping("/user/delete/{id}") //delete user
+    public void deleteUser(@PathVariable Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        userRepository.delete(user);
+    }
+
+    @GetMapping("/users") //get list of all users
+    public List<User> getListOfUsers() {
+        return userRepository.findAll();
     }
 
 
