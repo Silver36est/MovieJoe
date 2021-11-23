@@ -13,6 +13,7 @@ import java.util.Random;
 @Controller
 @RequestMapping("/api")
 @ResponseBody
+@CrossOrigin("http://localhost:4200")
 public class MovieController {
 
     @Autowired
