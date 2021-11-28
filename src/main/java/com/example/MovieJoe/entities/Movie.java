@@ -19,10 +19,11 @@ public class Movie {
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull(message = "Must provide description")
+    @NotNull(message = "Must provide title")
     private String title;
     private String genre;
     private String releaseYear;
     private String length;
     private String description;
+
 }
