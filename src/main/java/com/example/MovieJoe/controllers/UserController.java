@@ -21,6 +21,10 @@ public class UserController {
 
     @PostMapping("/user") //add new user
     public User createUser(@Validated @RequestBody User user) {
+        /*if (!userRepository.findByUserName(user.getUserName())) {
+            userRepository.save(user);
+        }
+        return user;*/
         return userRepository.save(user);
     }
 
@@ -41,6 +45,12 @@ public class UserController {
     @GetMapping("/users") //get list of all users
     public List<User> getListOfUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping("/user/check")
+    public User checkUser(@RequestBody User user) {
+        User checkedUser = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+        return checkedUser;
     }
 
 

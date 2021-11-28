@@ -25,4 +25,5 @@ public class Movie {
     private String releaseYear;
     private String length;
     private String description;
+
 }
