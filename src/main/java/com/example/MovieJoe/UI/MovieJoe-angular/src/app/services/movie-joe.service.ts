@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from "../models/user/user.model";
+import {Movie} from "../models/movie/movie.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class MovieJoeService {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   };
+
 
   constructor() { }
 
@@ -31,4 +33,28 @@ export class MovieJoeService {
     )
   }
 
+  findUserByNameAndPassword() {
+    return fetch(this.apiUrl + '/user/check', {
+      method: 'GET',
+      headers: this.headers
+    })
+  }
+
+  onSaveMovie(movie: Movie) {
+    return fetch(
+      this.apiUrl + '/movie',
+      {
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify(movie)
+      }
+    )
+  }
+
+  onShowMovieList() {
+    return fetch(this.apiUrl + '/movies', {
+      method: 'GET',
+      headers: this.headers
+    })
+  }
 }

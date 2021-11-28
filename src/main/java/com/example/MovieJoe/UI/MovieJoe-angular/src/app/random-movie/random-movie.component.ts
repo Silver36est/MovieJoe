@@ -8,7 +8,7 @@ import {Movie} from "../models/movie/movie.model";
   styleUrls: ['./random-movie.component.css']
 })
 export class RandomMovieComponent implements OnInit {
-  movie: any;
+  movie: Movie = new Movie();
 
   constructor(private movieService: MovieJoeService) { }
 

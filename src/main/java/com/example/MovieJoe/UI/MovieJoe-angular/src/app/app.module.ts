@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { RandomMovieComponent } from './random-movie/random-movie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
+import { UserHomeComponent } from './user-home/user-home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    RandomMovieComponent
+    RandomMovieComponent,
+    UserHomeComponent
   ],
     imports: [
         BrowserModule,
