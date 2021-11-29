@@ -9,6 +9,7 @@ import {Movie} from "../models/movie/movie.model";
 })
 export class RandomMovieComponent implements OnInit {
   movie: Movie = new Movie();
+  showMovie: boolean = false;
 
   constructor(private movieService: MovieJoeService) { }
 
@@ -19,6 +20,7 @@ export class RandomMovieComponent implements OnInit {
     this.movieService.getRandomMovie()
       .then((response) => response.json())
       .then((response) => {
+        this.showMovie = true;
         this.movie = response;
       })
   }
