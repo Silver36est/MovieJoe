@@ -9,6 +9,7 @@ import { RandomMovieComponent } from './random-movie/random-movie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
 import { UserHomeComponent } from './user-home/user-home.component';
+import { MovieItemComponent } from './movie-item/movie-item.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
     LoginComponent,
     RegisterComponent,
     RandomMovieComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    MovieItemComponent
   ],
     imports: [
         BrowserModule,

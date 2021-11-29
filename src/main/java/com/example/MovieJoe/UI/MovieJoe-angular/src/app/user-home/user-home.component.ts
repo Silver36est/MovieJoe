@@ -40,20 +40,16 @@ export class UserHomeComponent implements OnInit {
   this.movie.description = '';
   }
 
-  showMovieForm() {
-    this.showMovie = true;
+  showMovieList() {
+    this.showMovies = !this.showMovies;
+    this.loadMoviesFromApi();
   }
 
-  showMovieList() {
+  loadMoviesFromApi() {
     this.movieService.onShowMovieList()
       .then((response)=> response.json())
       .then((response)=> {
         this.movies = response;
-        if(this.showMovies) {
-          this.showMovies = false;
-        } else {
-          this.showMovies = true;
-        }
       })
   }
 

@@ -16,7 +16,8 @@ export class MovieJoeService {
   constructor() { }
 
   getRandomMovie(): Promise<Response> {
-    return fetch(this.apiUrl + '/random', {
+    return fetch(
+      this.apiUrl + '/random', {
       method: 'GET',
       headers: this.headers
     })
@@ -34,7 +35,8 @@ export class MovieJoeService {
   }
 
   findUserByNameAndPassword() {
-    return fetch(this.apiUrl + '/user/check', {
+    return fetch(
+      this.apiUrl + '/user/check', {
       method: 'GET',
       headers: this.headers
     })
@@ -52,9 +54,29 @@ export class MovieJoeService {
   }
 
   onShowMovieList() {
-    return fetch(this.apiUrl + '/movies', {
+    return fetch(
+      this.apiUrl + '/movies', {
       method: 'GET',
       headers: this.headers
     })
   }
+
+  onDeleteMovie(movieId: number | undefined) {
+    return fetch(
+      this.apiUrl + '/movie/delete/' + movieId, {
+      method: 'DELETE',
+      headers: this.headers
+    })
+  }
+
+  onEditMovie(movie: Movie) {
+    return fetch(
+      this.apiUrl + '/movie/update/' + movie.id, {
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify(movie)
+      }
+    )
+  }
+
 }

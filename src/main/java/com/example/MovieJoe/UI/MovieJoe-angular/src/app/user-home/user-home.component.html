@@ -1,7 +1,7 @@
 <div class="m-3">
   <h3>Add new movie to our database:</h3>
 <div *ngIf="!showMovie">
-  <button type="button" class="btn btn-dark" (click)="showMovieForm()">Add movie</button>
+  <button type="button" class="btn btn-dark" (click)="showMovie = true">Add movie</button>
 </div>
 </div>
 
@@ -37,15 +37,7 @@
 
 <div class="m-3 justify-content-center p-2 border border-dark" *ngIf="showMovies">
   <div class="m-3 justify-content-center p-2 border border-dark" *ngFor="let movie of movies">
-    <h4><b>Title: {{movie.title}}</b></h4>
-    <p>Genre: {{movie.genre}}</p>
-    <p>Release year: {{movie.releaseYear}}</p>
-    <p>Length: {{movie.length}}</p>
-    <p>Description: {{movie.description}}</p>
-    <div>
-      <button type="button" class="btn btn-dark btn-sm">DELETE</button>
-      <button type="button" class="btn btn-dark btn-sm">EDIT</button>
-    </div>
+    <app-movie-item></app-movie-item>
   </div>
 </div>
 
