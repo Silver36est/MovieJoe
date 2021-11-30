@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   user: User = new User();
+  showMessage: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(private movieService: MovieJoeService,
               public router: Router) { }
@@ -17,14 +19,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin() {
-    this.movieService.findUserByNameAndPassword()
-      .then((response)=> response.json())
+  onLogin(user: User) {
+    this.movieService.findUserByNameAndPassword(user)
       .then((response) => {
-        this.router.navigate([''], {queryParams: { login: 'true' } });
-      }).catch((error) => {
-      console.log(error)
-    })
-
+        if (response.status === 200) {
+          this.router.navigate(['home'], {queryParams: { login: 'true' } });
+          this.isLoggedIn = true;
+        } else {
+          this.showMessage = true;
+        }
+      })
   }
+
 }

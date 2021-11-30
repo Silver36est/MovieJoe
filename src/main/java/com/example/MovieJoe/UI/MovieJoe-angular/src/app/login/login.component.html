@@ -2,6 +2,10 @@
   <h1>Login:</h1>
 </div>
 
+<div class="text-center p-2" *ngIf="showMessage">
+  <h3><p>Wrong username or password, please try again!</p></h3>
+</div>
+
 <form class="text-center p-2">
   <div class="form-group">
     <label>Username:</label>
@@ -12,6 +16,6 @@
     <input class="form-control" [(ngModel)]="user.password" name="password" type="password">
   </div>
   <div>
-    <button (click)="onLogin()" type="button" class="btn btn-dark">Login</button>
+    <button (click)="onLogin(user)" type="button" class="btn btn-dark">Login</button>
   </div>
 </form>

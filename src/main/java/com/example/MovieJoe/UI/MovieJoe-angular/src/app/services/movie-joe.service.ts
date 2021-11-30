@@ -34,11 +34,12 @@ export class MovieJoeService {
     )
   }
 
-  findUserByNameAndPassword() {
+  findUserByNameAndPassword(user: User) {
     return fetch(
       this.apiUrl + '/user/check', {
-      method: 'GET',
-      headers: this.headers
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify(user)
     })
   }
 

@@ -47,9 +47,14 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/user/check")
-    public User checkUser(@RequestBody User user) {
-        User checkedUser = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+    @PostMapping("/user/check")
+    public User checkUser(@RequestBody User user) throws Exception {
+        User checkedUser = new User();
+        if (userRepository.existsByUserNameAndPassword(user.getUserName(), user.getPassword())) {
+            checkedUser = userRepository.findByUserNameAndPassword(user.getUserName(), user.getPassword());
+        } else {
+            throw new Exception("User is not in database");
+        }
         return checkedUser;
     }
 
