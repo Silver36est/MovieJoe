@@ -11,16 +11,16 @@
     <input type="text" [(ngModel)]="movie.title" name="title" class="form-control" placeholder="enter movie title">
   </div>
   <div class="form-group">
-    <input type="text" [(ngModel)]="movie.genre" name="title" class="form-control" placeholder="enter movie genre">
+    <input type="text" [(ngModel)]="movie.genre" name="genre" class="form-control" placeholder="enter movie genre">
   </div>
   <div class="form-group">
-    <input type="text" [(ngModel)]="movie.releaseYear" name="title" class="form-control" placeholder="enter release year">
+    <input type="text" [(ngModel)]="movie.releaseYear" name="releaseYear" class="form-control" placeholder="enter release year">
   </div>
   <div class="form-group">
-    <input type="text" [(ngModel)]="movie.length" name="title" class="form-control" placeholder="enter movie length">
+    <input type="text" [(ngModel)]="movie.length" name="length" class="form-control" placeholder="enter movie length">
   </div>
   <div class="form-group">
-    <input type="text" [(ngModel)]="movie.description" name="title" class="form-control" placeholder="enter description">
+    <input type="text" [(ngModel)]="movie.description" name="description" class="form-control" placeholder="enter description">
   </div>
   <button type="submit" class="btn btn-dark m-1" (click)="saveMovie()">Save</button>
   <button type="button" class="btn btn-dark m-1" (click)="cancelSave()">Cancel</button>
@@ -32,18 +32,18 @@
   <div>
     <button type="button" (click)="showMovieList()" class="btn btn-dark">Show movies</button>
   </div>
-</div>
-
-
-<div class="m-3 justify-content-center p-2 border border-dark" *ngIf="showMovies">
-  <div class="m-3 justify-content-center p-2 border border-dark" *ngFor="let movie of movies">
-    <app-movie-item
-    [movie]="movie"
-    (onDeleteMovie)="deleteMovie($event)"
-    (onEditMovie)="editMovie($event)"
-    ></app-movie-item>
+  <div class="m-3 justify-content-center p-2 border border-dark" *ngIf="showMovies">
+    <div class="m-3 justify-content-center p-2 border border-dark" *ngFor="let movie of movies">
+      <app-movie-item
+        [movie]="movie"
+        (onDeleteMovie)="deleteMovie($event)"
+        (onEditMovie)="editMovie($event)"
+      ></app-movie-item>
+    </div>
   </div>
 </div>
+
+
 
 
 
