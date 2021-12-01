@@ -1,0 +1,42 @@
+<div>
+  <h3>Add new movie to our database:</h3>
+  <div *ngIf="!showMovie">
+    <button type="button" class="btn btn-dark" (click)="showMovie = true">Add Movie</button>
+  </div>
+</div>
+
+<form name="movieForm" class="p-2 text-center" *ngIf="showMovie">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="movie.title" name="title" class="form-control" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="movie.genre" name="genre" class="form-control" placeholder="Genre">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="movie.releaseYear" name="releaseYear" class="form-control" placeholder="Release year">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="movie.length" name="length" class="form-control" placeholder="Length">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="movie.description" name="description" class="form-control" placeholder="Description">
+  </div>
+  <button type="submit" class="btn btn-dark m-1" (click)="saveMovie()">Save</button>
+  <button type="submit" class="btn btn-dark m-1" (click)="cancelSave()">Cancel</button>
+</form>
+
+<div class="m-3" *ngIf="!showMovie">
+  <h4>Show all movies:</h4>
+  <div>
+    <button type="button" (click)="showMovieList()" class="btn btn-dark">Show movies</button>
+  </div>
+  <div class="m-3 justify-content-center p-2 border border-dark" *ngIf="showMovies">
+    <div class="m-3 justify-content-center p-2 border border-dark" *ngFor="let movie of movies">
+      <app-movie-item
+        [movie]="movie"
+        (onDeleteMovie)="deleteMovie($event)"
+        (onEditMovie)="editMovie($event)"
+      ></app-movie-item>
+    </div>
+  </div>
+</div>
