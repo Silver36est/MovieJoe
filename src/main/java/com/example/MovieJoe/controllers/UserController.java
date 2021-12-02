@@ -20,12 +20,16 @@ public class UserController {
     private UserRepository userRepository;
 
     @PostMapping("/user") //add new user
-    public User createUser(@Validated @RequestBody User user) {
-        /*if (!userRepository.findByUserName(user.getUserName())) {
-            userRepository.save(user);
+    public User createUser(@Validated @RequestBody User user) throws Exception {
+        User checkedUser = new User();
+        if (!userRepository.existsByUserName(user.getUserName())) {
+            checkedUser.setUserName(user.getUserName());
+            checkedUser.setPassword(user.getPassword());
+            userRepository.save(checkedUser);
+        } else {
+            throw new Exception("Username already exists!");
         }
-        return user;*/
-        return userRepository.save(user);
+        return checkedUser;
     }
 
     @PutMapping("/user/update/{id}") //update user info

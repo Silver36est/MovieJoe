@@ -1,4 +1,9 @@
 <div class="m-3">
+  <button type="button" class="btn btn-dark" (click)="logOut()">Log Out</button>
+</div>
+
+
+<div class="m-3">
   <h3>Add new movie to our database:</h3>
 <div *ngIf="!showMovie">
   <button type="button" class="btn btn-dark" (click)="showMovie = true">Add movie</button>

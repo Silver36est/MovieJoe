@@ -1,23 +1,30 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Movie} from "../models/movie/movie.model";
 import {MovieJoeService} from "../services/movie-joe.service";
-import {MovieItemComponent} from "../movie-item/movie-item.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
   styleUrls: ['./user-home.component.css']
 })
-export class UserHomeComponent implements OnInit {
+export class UserHomeComponent implements OnInit{
   movie: Movie = new Movie();
   movies: Array<Movie> = [];
   showMovie: boolean = false;
   showMovies: boolean = false;
   editMovieInfo: boolean = false;
+  isLoggedIn: boolean = false;
 
-  constructor(private movieService: MovieJoeService) { }
+  constructor(private movieService: MovieJoeService,
+              public router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logOut() {
+    sessionStorage.clear()
+    this.router.navigate(['login']) .then(() => { location.reload(); });
   }
 
   saveMovie() {
