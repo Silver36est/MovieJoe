@@ -17,12 +17,17 @@ export class MovieItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editInfo() {
+    this.editMovieInfo = true;
+    let tempMovie = this.movie;
+  }
+
   cancelEditSave() {
     this.editMovieInfo = false;
-    this.movie.title = '';
-    this.movie.genre = '';
-    this.movie.releaseYear = '';
-    this.movie.length = '';
-    this.movie.description = '';
+    //this.movie.title = '';
+    //this.movie.genre = '';
+    //this.movie.releaseYear = '';
+    //this.movie.length = '';
+    //this.movie.description = '';
   }
 }

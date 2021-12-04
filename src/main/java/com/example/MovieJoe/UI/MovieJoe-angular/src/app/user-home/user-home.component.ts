@@ -14,6 +14,7 @@ export class UserHomeComponent implements OnInit {
   showMovie: boolean = false;
   showMovies: boolean = false;
   editMovieInfo: boolean = false;
+  addMovie: boolean = false;
 
   constructor(private movieService: MovieJoeService) { }
 
@@ -74,4 +75,7 @@ export class UserHomeComponent implements OnInit {
       })
   }
 
+  showAddMovieForm() {
+    this.addMovie = !this.addMovie
+  }
 }
