@@ -18,7 +18,7 @@
     <p>Length: <input type="text" [(ngModel)]="movie.length" name="length"></p>
     <p>Description: <input type="text" [(ngModel)]="movie.description" name="description"></p>
     <button type="submit" class="btn btn-dark btn-sm" (click)="onEditMovie.emit(movie)">Save</button>
-    <button type="button" class="btn btn-dark btn-sm" (click)="cancelEditSave()">Cancel</button>
+    <button type="button" class="btn btn-dark btn-sm" (click)="cancelEditSave(movie)">Cancel</button>
   </div>
 </div>
 

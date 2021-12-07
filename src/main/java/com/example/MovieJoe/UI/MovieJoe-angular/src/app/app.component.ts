@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,12 @@ export class AppComponent implements OnInit {
   title = 'MovieJoe';
   isLoggedIn: boolean = false;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
   }
+
 
 
 }

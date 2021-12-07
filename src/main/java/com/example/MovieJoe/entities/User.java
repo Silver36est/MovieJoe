@@ -21,5 +21,10 @@ public class User {
     @NotNull(message = "you need to provide a password")
     private String password;
     private String role;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String image;
+
 
 }

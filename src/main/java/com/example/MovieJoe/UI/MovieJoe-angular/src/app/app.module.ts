@@ -10,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from "@angular/forms";
 import { UserHomeComponent } from './user-home/user-home.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
+import { UserItemComponent } from './user-item/user-item.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -19,13 +21,15 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
     RegisterComponent,
     RandomMovieComponent,
     UserHomeComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    UserItemComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        FormsModule
+        FormsModule,
+        MatCardModule
     ],
   providers: [],
   bootstrap: [AppComponent]

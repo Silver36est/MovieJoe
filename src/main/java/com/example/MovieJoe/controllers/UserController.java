@@ -35,8 +35,15 @@ public class UserController {
     @PutMapping("/user/update/{id}") //update user info
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         User foundUser = userRepository.findById(id).orElseThrow();
-        foundUser.setUserName(user.getUserName());
+        if (!userRepository.existsByUserName(user.getUserName())) {
+            foundUser.setUserName(user.getUserName());
+        }
         foundUser.setPassword(user.getPassword());
+        foundUser.setFirstName(user.getFirstName());
+        foundUser.setLastName(user.getLastName());
+        foundUser.setEmail(user.getEmail());
+        foundUser.setImage(user.getImage());
+
         return userRepository.save(foundUser);
     }
 

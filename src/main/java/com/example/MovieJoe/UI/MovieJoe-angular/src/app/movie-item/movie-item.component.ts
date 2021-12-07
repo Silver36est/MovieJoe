@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Movie} from "../models/movie/movie.model";
+import {MovieJoeService} from "../services/movie-joe.service";
 
 @Component({
   selector: 'app-movie-item',
@@ -12,18 +13,18 @@ export class MovieItemComponent implements OnInit {
   @Output() onEditMovie: EventEmitter<Movie> = new EventEmitter<Movie>();
   editMovieInfo: boolean = false;
 
-  constructor() { }
+  constructor(private  movieService: MovieJoeService) { }
 
   ngOnInit(): void {
   }
 
-  cancelEditSave() {
-    this.editMovieInfo = false;
-    this.movie.title = '';
-    this.movie.genre = '';
-    this.movie.releaseYear = '';
-    this.movie.length = '';
-    this.movie.description = '';
+  cancelEditSave(movie: Movie) {
+    this.movieService.showMovieById(movie.id)
+      .then((response)=> response.json())
+      .then((response)=> {
+        this.movie = response;
+        this.editMovieInfo = false;
+      })
   }
 
 }

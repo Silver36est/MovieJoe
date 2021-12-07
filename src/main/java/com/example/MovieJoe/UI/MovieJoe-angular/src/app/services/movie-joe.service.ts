@@ -80,4 +80,12 @@ export class MovieJoeService {
     )
   }
 
+  showMovieById(movieId: number | undefined) {
+    return fetch(
+      this.apiUrl + '/movie/' + movieId, {
+        method: 'GET',
+        headers: this.headers
+      })
+  }
+
 }

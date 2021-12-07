@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Movie} from "../models/movie/movie.model";
 import {MovieJoeService} from "../services/movie-joe.service";
 import {Router} from "@angular/router";
@@ -14,10 +14,9 @@ export class UserHomeComponent implements OnInit{
   showMovie: boolean = false;
   showMovies: boolean = false;
   editMovieInfo: boolean = false;
-  isLoggedIn: boolean = false;
 
   constructor(private movieService: MovieJoeService,
-              public router: Router) { }
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -80,5 +79,7 @@ export class UserHomeComponent implements OnInit{
         this.loadMoviesFromApi();
       })
   }
+
+
 
 }
