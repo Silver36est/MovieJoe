@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from "../models/user/user.model";
+import {MovieJoeService} from "../services/movie-joe.service";
 
 @Component({
   selector: 'app-user-item',
@@ -7,16 +8,30 @@ import {User} from "../models/user/user.model";
   styleUrls: ['./user-item.component.css']
 })
 export class UserItemComponent implements OnInit {
-  isInEditMode: boolean = false;
+  editUserInfo: boolean = false;
   @Input() user: User = new User();
-  @Output() onUpdatingUserInfo: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor() { }
+  constructor(private movieService: MovieJoeService) { }
 
   ngOnInit(): void {
   }
 
-  cancelEditMode() {
-
+  saveUserInfo(user: User) {
+    this.movieService.onUpdatingUserInfo(user)
+      .then((response) => response.json())
+      .then((response) => {
+        this.user = response;
+        this.editUserInfo = false;
+      })
   }
+
+  cancelEditMode(user: User) {
+    this.movieService.onGettingUserInfoById(user.id)
+      .then((response)=> response.json())
+      .then((response)=> {
+        this.user = response;
+        this.editUserInfo = false;
+      })
+  }
+
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Movie} from "../models/movie/movie.model";
 import {MovieJoeService} from "../services/movie-joe.service";
 import {Router} from "@angular/router";
+import {User} from "../models/user/user.model";
 
 @Component({
   selector: 'app-user-home',
@@ -10,43 +11,24 @@ import {Router} from "@angular/router";
 })
 export class UserHomeComponent implements OnInit{
   movie: Movie = new Movie();
+  user: User = new User();
   movies: Array<Movie> = [];
   showMovie: boolean = false;
   showMovies: boolean = false;
-  editMovieInfo: boolean = false;
+  currentUserName: string | null = '';
+  currentPassword: string | null = '';
+  showUserInfo: boolean = false;
 
   constructor(private movieService: MovieJoeService,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.getUserInfo();
   }
 
   logOut() {
     sessionStorage.clear()
     this.router.navigate(['login']) .then(() => { location.reload(); });
-  }
-
-  saveMovie() {
-    this.movieService.onSaveMovie(this.movie)
-      .then((response)=> response.json())
-      .then((response) => {
-        this.showMovie = false;
-        this.loadMoviesFromApi();
-        this.emptyInputFields();
-      })
-  }
-
-  emptyInputFields() {
-    this.movie.title = '';
-    this.movie.genre = '';
-    this.movie.releaseYear = '';
-    this.movie.length = '';
-    this.movie.description = '';
-  }
-
-  cancelSave() {
-  this.showMovie = false;
-  this.emptyInputFields();
   }
 
   showMovieList() {
@@ -71,12 +53,17 @@ export class UserHomeComponent implements OnInit{
       })
   }
 
-  editMovie(movie: Movie) {
-    this.movieService.onEditMovie(movie)
-      .then((response) => response.json())
-      .then((response) => {
-        this.editMovieInfo = false;
-        this.loadMoviesFromApi();
+  getUserInfo() {
+    this.currentUserName = sessionStorage.getItem("currentUserName");
+    this.currentPassword = sessionStorage.getItem("currentPassword");
+    let userX = new User();
+    userX.userName = this.currentUserName;
+    userX.password = this.currentPassword;
+    this.movieService.findUserByNameAndPassword(userX)
+      .then((response)=> response.json())
+      .then((response)=> {
+        this.showUserInfo = !this.showUserInfo;
+        this.user = response;
       })
   }
 

@@ -11,7 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { UserHomeComponent } from './user-home/user-home.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { UserItemComponent } from './user-item/user-item.component';
-import {MatCardModule} from "@angular/material/card";
+import { AddMovieComponent } from './add-movie/add-movie.component';
 
 
 @NgModule({
@@ -22,14 +22,14 @@ import {MatCardModule} from "@angular/material/card";
     RandomMovieComponent,
     UserHomeComponent,
     MovieItemComponent,
-    UserItemComponent
+    UserItemComponent,
+    AddMovieComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        FormsModule,
-        MatCardModule
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -88,4 +88,22 @@ export class MovieJoeService {
       })
   }
 
+  onUpdatingUserInfo(user: User) {
+    return fetch(
+      this.apiUrl + '/user/update/' + user.id, {
+        method: 'POST',
+        headers: this.headers,
+        body: JSON.stringify(user)
+      }
+    )
+  }
+
+  onGettingUserInfoById(userId: number | undefined) {
+    return fetch(
+      this.apiUrl + '/user/' + userId, {
+        method: 'GET',
+        headers: this.headers
+      })
+  }
+
 }

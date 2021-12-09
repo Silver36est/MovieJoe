@@ -1,6 +1,7 @@
 package com.example.MovieJoe.controllers;
 
 
+import com.example.MovieJoe.entities.Movie;
 import com.example.MovieJoe.entities.User;
 import com.example.MovieJoe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserController {
         return checkedUser;
     }
 
-    @PutMapping("/user/update/{id}") //update user info
+    @PostMapping("/user/update/{id}") //update user info
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         User foundUser = userRepository.findById(id).orElseThrow();
         if (!userRepository.existsByUserName(user.getUserName())) {
@@ -67,6 +68,11 @@ public class UserController {
             throw new Exception("User is not in database");
         }
         return checkedUser;
+    }
+
+    @GetMapping("/user/{id}")//find by id
+    public User getUserById(@PathVariable(value = "id") Long id) {
+        return userRepository.findById(id).orElseThrow();
     }
 
 

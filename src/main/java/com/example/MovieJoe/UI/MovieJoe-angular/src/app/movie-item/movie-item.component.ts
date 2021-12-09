@@ -10,12 +10,20 @@ import {MovieJoeService} from "../services/movie-joe.service";
 export class MovieItemComponent implements OnInit {
   @Input() movie: Movie = new Movie();
   @Output() onDeleteMovie: EventEmitter<Movie> = new EventEmitter<Movie>();
-  @Output() onEditMovie: EventEmitter<Movie> = new EventEmitter<Movie>();
   editMovieInfo: boolean = false;
 
   constructor(private  movieService: MovieJoeService) { }
 
   ngOnInit(): void {
+  }
+
+  editMovie(movie: Movie) {
+    this.movieService.onEditMovie(movie)
+      .then((response) => response.json())
+      .then((response) => {
+        this.movie = response;
+        this.editMovieInfo = false;
+      })
   }
 
   cancelEditSave(movie: Movie) {
