@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MovieJoeService} from "../services/movie-joe.service";
 import {Movie} from "../models/movie/movie.model";
 
@@ -7,8 +7,9 @@ import {Movie} from "../models/movie/movie.model";
   templateUrl: './random-movie.component.html',
   styleUrls: ['./random-movie.component.css']
 })
-export class RandomMovieComponent implements OnInit {
+export class RandomMovieComponent implements OnInit{
   movie: Movie = new Movie();
+  showMovie: boolean = false;
 
   constructor(private movieService: MovieJoeService) { }
 
@@ -19,6 +20,7 @@ export class RandomMovieComponent implements OnInit {
     this.movieService.getRandomMovie()
       .then((response) => response.json())
       .then((response) => {
+        this.showMovie = true;
         this.movie = response;
       })
   }

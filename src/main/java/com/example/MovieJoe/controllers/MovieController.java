@@ -59,4 +59,10 @@ public class MovieController {
         }
         return randomMovie;
     }
+
+    @GetMapping("/movie/{id}")//find by id
+    public Movie getMovieById(@PathVariable(value = "id") Long id) {
+        return movieRepository.findById(id).orElseThrow();
+    }
+
 }

@@ -1,0 +1,28 @@
+<div>
+  <h3>Add new movie to our database:</h3>
+  <div *ngIf="!addMovie">
+    <button type="button" class="btn btn-dark" (click)="showAddMovieForm()">Add Movie</button>
+  </div>
+
+  <div *ngIf="addMovie">
+    <form name="movieForm" class="p-2 text-center">
+      <div class="form-group">
+        <input type="text" [(ngModel)]="movie.title" name="title" class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="movie.genre" name="genre" class="form-control" placeholder="Genre">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="movie.releaseYear" name="releaseYear" class="form-control" placeholder="Release year">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="movie.length" name="length" class="form-control" placeholder="Length">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="movie.description" name="description" class="form-control" placeholder="Description">
+      </div>
+      <button type="submit" class="btn btn-dark m-1" (click)="saveMovie(movie)">Save</button>
+      <button type="submit" class="btn btn-dark m-1" (click)="cancelSave()">Cancel</button>
+    </form>
+  </div>
+</div>

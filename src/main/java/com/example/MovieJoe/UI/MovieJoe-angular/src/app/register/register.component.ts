@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
+  isRegistrationInvalid: boolean = false;
 
   constructor(private movieService: MovieJoeService,
               public router: Router) { }
@@ -20,12 +21,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.movieService.registerUser(this.user)
-      .then((response)=> response.json())
       .then((response) => {
-        this.router.navigate(['login'], {queryParams: { registered: 'true' } });
-      }).catch((error) => {
-      console.log(error)
-    })
+        if (response.status === 200) {
+          this.router.navigate(['login'], {queryParams: { registered: 'true' } });
+        } else {
+          this.isRegistrationInvalid = true;
+        }
+      })
   }
 
 
