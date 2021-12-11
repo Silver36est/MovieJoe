@@ -13,7 +13,6 @@ export class UserHomeComponent implements OnInit{
   movie: Movie = new Movie();
   user: User = new User();
   movies: Array<Movie> = [];
-  showMovie: boolean = false;
   showMovies: boolean = false;
   currentUserName: string | null = '';
   currentPassword: string | null = '';
