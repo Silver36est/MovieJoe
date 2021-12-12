@@ -7,9 +7,10 @@ export class User {
   lastName?: String;
   email?: String;
   image?: String;
+  active?: boolean;
 
   constructor(id?: number, userName?: string, password?: string, role?: string, firstName?: string, lastName?: string,
-              email?: string, image?: string) {
+              email?: string, image?: string, active?: boolean) {
     this.id = id;
     this.userName = userName;
     this.password = password;
@@ -18,5 +19,6 @@ export class User {
     this.lastName = lastName;
     this.email = email;
     this.image = image;
+    this.active = active;
   }
 }
