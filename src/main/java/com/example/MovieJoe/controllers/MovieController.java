@@ -32,6 +32,7 @@ public class MovieController {
         getMovie.setReleaseYear(movie.getReleaseYear());
         getMovie.setLength(movie.getLength());
         getMovie.setDescription(movie.getDescription());
+        getMovie.setImage(movie.getImage());
         return movieRepository.save(getMovie);
     }
 
