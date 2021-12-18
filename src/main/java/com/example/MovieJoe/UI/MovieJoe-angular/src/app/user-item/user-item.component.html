@@ -2,8 +2,8 @@
 
   <div *ngIf="!editUserInfo">
     <h2 class="m-3">Username: <b>{{user.userName}}</b></h2>
-    <img [src]="user.image" style="max-width: 200px" class="m-3" alt="picture">
-    <div class="border border-dark m-3 justify-content-center p-2">
+    <img [src]="user.image" style="max-width: 200px" class="m-3 img-thumbnail" alt="picture">
+    <div class="m-3 justify-content-center p-2">
       <p>Name: {{user.firstName}} {{user.lastName}}</p>
       <p>Email: {{user.email}}</p>
       <div>

@@ -4,13 +4,13 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col border">
         <app-user-item
           [user]= "user"
         ></app-user-item>
     </div>
 
-    <div class="col">
+    <div class="col border">
       <app-add-movie
         [movie] = "movie"
       ></app-add-movie>
@@ -20,7 +20,7 @@
 
 
   <div>
-    <div class="justify-content-center">
+    <div class="m-3 text-center">
       <h4>Show All movies:</h4>
       <div>
         <button type="button" (click)="showMovieList()" class="btn btn-dark">Show movies</button>
@@ -29,7 +29,7 @@
       <div *ngIf="showMovies">
         <div class="container">
           <div class="row row-cols-3">
-            <div class="col" *ngFor="let movie of movies">
+            <div class="col border" *ngFor="let movie of movies">
               <app-movie-item
                 [movie]="movie"
                 (onDeleteMovie)="deleteMovie($event)"
