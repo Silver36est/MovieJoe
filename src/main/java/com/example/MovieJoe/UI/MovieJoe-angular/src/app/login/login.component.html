@@ -1,3 +1,4 @@
+<!--
 <div class="text-center p-2">
   <h1>Login:</h1>
 </div>
@@ -19,3 +20,28 @@
     <button (click)="onLogin(user)" type="button" class="btn btn-dark">Login</button>
   </div>
 </form>
+-->
+
+<div class="login-wrapper login-top" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+        <h3 *ngIf="showMessage"><p>Wrong username or password, please try again!</p></h3>
+    </mat-card-header>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" [(ngModel)]="user.userName" name="userName" type="text">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" [(ngModel)]="user.password" name="password" type="password">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="black" class="btn-block" (click)="onLogin(user)">Log in</button>
+    </form>
+  </mat-card>
+
+</div>
