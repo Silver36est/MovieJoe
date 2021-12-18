@@ -2,10 +2,7 @@ package com.example.MovieJoe.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Setter
@@ -24,6 +21,8 @@ public class Movie {
     private String genre;
     private String releaseYear;
     private String length;
+    @Column(columnDefinition = "TEXT")
     private String description;
+    private String image;
 
 }
