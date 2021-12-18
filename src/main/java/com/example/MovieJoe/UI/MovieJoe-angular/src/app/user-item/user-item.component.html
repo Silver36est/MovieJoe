@@ -1,26 +1,32 @@
-<div>
+<div class="p-4" style="position:relative;">
 
   <div *ngIf="!editUserInfo">
-    <h2 class="m-3">Username: <b>{{user.userName}}</b></h2>
-    <img [src]="user.image" style="max-width: 200px" class="m-3 img-thumbnail" alt="picture">
-    <div class="m-3 justify-content-center p-2">
-      <p>Name: {{user.firstName}} {{user.lastName}}</p>
-      <p>Email: {{user.email}}</p>
-      <div>
-        <button type="button" class="btn btn-sm btn-dark" (click)="editUserInfo = true">EDIT</button>
+    <h1 class="row justify-content-center">Username: <b>{{user.userName}}</b></h1>
+    <div class="row justify-content-center">
+    <img [src]="user.image" style="max-width: 200px" alt="picture">
+    </div>
+    <div class="p-2">
+      <h2>
+        <p class="row justify-content-center">Name: {{user.firstName}} {{user.lastName}}</p>
+        <p class="row justify-content-center">Email: {{user.email}}</p>
+      </h2>
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-dark" (click)="editUserInfo = true">EDIT USER INFO</button>
       </div>
     </div>
   </div>
 
-  <div *ngIf="editUserInfo">
-    <h4><b>{{user.userName}}</b></h4>
-    <input [(ngModel)]="user.image" placeholder="image" type="url" class="w3-input">
-    <p>Name: <input type="text" [(ngModel)]="user.firstName" placeholder="first name" name="firstName"> <input type="text" [(ngModel)]="user.lastName" placeholder="last name" name="lastName"></p>
-    <p>Email: <input type="text" [(ngModel)]="user.email" placeholder="email" name="email"></p>
-    <div>
-      <button type="button" class="btn btn-sm btn-dark" (click)="saveUserInfo(user)">SAVE</button>
-      <button type="button" class="btn btn-sm btn-dark" (click)="cancelEditMode(user)">CANCEL</button>
-    </div>
+  <div *ngIf="editUserInfo" class="p-2">
+      <h1 class="row justify-content-center"><b>{{user.userName}}</b></h1>
+      <p><input [(ngModel)]="user.image" type="url" class="form-control"></p>
+      <p>First name: <input type="text" [(ngModel)]="user.firstName" class="form-control" name="firstName"></p>
+      <p>Last name: <input type="text" [(ngModel)]="user.lastName" class="form-control" name="lastName"></p>
+      <p>Email: <input type="text" [(ngModel)]="user.email" class="form-control" name="email"></p>
+
+      <div class="row justify-content-center p-2">
+        <button type="button" class="btn btn-dark row mr-2" (click)="saveUserInfo(user)">SAVE</button>
+        <button type="button" class="btn btn-dark row ml-2" (click)="cancelEditMode(user)">CANCEL</button>
+      </div>
   </div>
 
 </div>

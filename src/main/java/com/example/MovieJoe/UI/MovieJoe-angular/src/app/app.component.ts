@@ -16,6 +16,11 @@ export class AppComponent implements OnInit {
     this.isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
   }
 
+  logOut() {
+    sessionStorage.clear()
+    this.router.navigate(['login']) .then(() => { location.reload(); });
+  }
+
 
 
 }

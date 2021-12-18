@@ -25,11 +25,6 @@ export class UserHomeComponent implements OnInit{
     this.getUserInfo();
   }
 
-  logOut() {
-    sessionStorage.clear()
-    this.router.navigate(['login']) .then(() => { location.reload(); });
-  }
-
   showMovieList() {
     this.showMovies = !this.showMovies;
     this.loadMoviesFromApi();

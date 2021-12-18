@@ -1,5 +1,4 @@
 <div>
-
   <div *ngIf="!editMovieInfo">
     <div class="container">
       <div class="info-custom">
@@ -29,15 +28,17 @@
   </div>
   </div>
 
-  <div *ngIf="editMovieInfo">
-    <h4><b>Title: <input type="text" [(ngModel)]="movie.title" name="title"></b></h4>
-    <p>Genre: <input type="text" [(ngModel)]="movie.genre" name="genre"></p>
-    <p>Release year: <input type="text" [(ngModel)]="movie.releaseYear" name="releaseYear"></p>
-    <p>Length: <input type="text" [(ngModel)]="movie.length" name="length"></p>
-    <p>Description: <input type="text" [(ngModel)]="movie.description" name="description"></p>
-    <p>Image: <input type="text" [(ngModel)]="movie.image" name="image link"></p>
-    <button type="submit" class="btn btn-dark btn-sm" (click)="editMovie(movie)">Save</button>
-    <button type="button" class="btn btn-dark btn-sm" (click)="cancelEditSave(movie)">Cancel</button>
+  <div *ngIf="editMovieInfo" class="p-3">
+    <p>Image: <input type="text" [(ngModel)]="movie.image" class="form-control" name="image link"></p>
+    <h4><b>Title: <input type="text" [(ngModel)]="movie.title" class="form-control" name="title"></b></h4>
+    <p>Genre: <input type="text" [(ngModel)]="movie.genre" class="form-control" name="genre"></p>
+    <p>Release year: <input type="text" [(ngModel)]="movie.releaseYear" class="form-control" name="releaseYear"></p>
+    <p>Length: <input type="text" [(ngModel)]="movie.length" class="form-control" name="length"></p>
+    <p>Description: <textarea type="text" [(ngModel)]="movie.description" class="form-control" name="description"></textarea></p>
+    <div class="row justify-content-center p-2">
+      <button type="submit" class="btn btn-dark btn-sm row mr-2" (click)="editMovie(movie)">SAVE</button>
+      <button type="button" class="btn btn-dark btn-sm row ml-2" (click)="cancelEditSave(movie)">CANCEL</button>
+    </div>
   </div>
 </div>
 

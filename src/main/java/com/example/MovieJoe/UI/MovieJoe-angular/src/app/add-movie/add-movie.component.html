@@ -1,10 +1,10 @@
 <div>
-  <div class="m-3">
-    <h3>Add new movie to our database:</h3>
-  </div>
-  <div *ngIf="!addMovie">
-    <button type="button" class="btn btn-dark" (click)="showAddMovieForm()">Add Movie</button>
-  </div>
+    <div class="row justify-content-center p-4">
+      <h1><b>Add new movie to our database:</b></h1>
+    </div>
+    <div *ngIf="!addMovie" class="row justify-content-center">
+      <button type="button" class="btn btn-dark" (click)="showAddMovieForm()">Add Movie</button>
+    </div>
 
   <div *ngIf="addMovie">
     <form name="movieForm" class="p-2 text-center">
@@ -26,8 +26,10 @@
       <div class="form-group">
         <input type="text" [(ngModel)]="movie.image" name="image" class="form-control" placeholder="Image address">
       </div>
-      <button type="submit" class="btn btn-dark m-1" (click)="saveMovie(movie)">Save</button>
-      <button type="submit" class="btn btn-dark m-1" (click)="cancelSave()">Cancel</button>
+      <div class="row justify-content-center p-2">
+        <button type="submit" class="btn btn-dark row mr-2" (click)="saveMovie(movie)">Save</button>
+        <button type="submit" class="btn btn-dark row ml-2" (click)="cancelSave()">Cancel</button>
+      </div>
     </form>
   </div>
 </div>
