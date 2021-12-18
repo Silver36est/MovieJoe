@@ -2,37 +2,43 @@
   <button type="button" class="btn btn-dark btn-sm" (click)="logOut()">Log Out</button>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <app-user-item
+          [user]= "user"
+        ></app-user-item>
+    </div>
 
-<div class="m-3 justify-content-center p-2 border border-dark">
-    <app-user-item
-      [user]= "user"
-    ></app-user-item>
+    <div class="col">
+      <app-add-movie
+        [movie] = "movie"
+      ></app-add-movie>
+    </div>
+  </div>
 </div>
 
 
-<div class="m-3 justify-content-center p-2 border border-dark">
-    <app-add-movie
-      [movie] = "movie"
-    ></app-add-movie>
-</div>
-
-
-<div class="m-3 justify-content-center p-2 border border-dark">
   <div>
-    <h4>Show All movies:</h4>
-    <div>
-      <button type="button" (click)="showMovieList()" class="btn btn-dark">Show movies</button>
+    <div class="justify-content-center">
+      <h4>Show All movies:</h4>
+      <div>
+        <button type="button" (click)="showMovieList()" class="btn btn-dark">Show movies</button>
+      </div>
     </div>
+      <div *ngIf="showMovies">
+        <div class="container">
+          <div class="row row-cols-3">
+            <div class="col" *ngFor="let movie of movies">
+              <app-movie-item
+                [movie]="movie"
+                (onDeleteMovie)="deleteMovie($event)"
+              ></app-movie-item>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
-  <div *ngIf="showMovies">
-    <div class="m-3 justify-content-center p-2 border border-dark" *ngFor="let movie of movies">
-      <app-movie-item
-        [movie]="movie"
-        (onDeleteMovie)="deleteMovie($event)"
-      ></app-movie-item>
-    </div>
-  </div>
-</div>
 
 
 
