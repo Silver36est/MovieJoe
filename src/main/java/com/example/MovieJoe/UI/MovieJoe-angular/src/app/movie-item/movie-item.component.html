@@ -1,24 +1,44 @@
 <div>
   <div *ngIf="!editMovieInfo">
-    <h4><b>Title: {{movie.title}}</b></h4>
-    <p>Genre: {{movie.genre}}</p>
-    <p>Release year: {{movie.releaseYear}}</p>
-    <p>Length: {{movie.length}}</p>
-    <p>Description: {{movie.description}}</p>
-    <div>
-      <button type="button" (click)="onDeleteMovie.emit(movie)" class="btn btn-dark btn-sm">DELETE</button>
-      <button type="button" (click)="editMovieInfo = true" class="btn btn-dark btn-sm">EDIT</button>
+    <div class="container">
+      <div class="info-custom">
+        <div>
+          <img [src]="movie.image" class="img-fluid mx-auto m-3" alt="picture">
+        </div>
+        <div class="row justify-content-center">
+          <h4><b>Title: {{movie.title}}</b></h4>
+        </div>
+        <div class="row justify-content-center">
+          <p>Genre: {{movie.genre}}</p>
+        </div>
+        <div class="row justify-content-center">
+          <p>Release year: {{movie.releaseYear}}</p>
+        </div>
+        <div class="row justify-content-center">
+          <p>Length: {{movie.length}}</p>
+        </div>
+        <div>
+          <p>Description: {{movie.description}}</p>
+        </div>
+      </div>
+    <div class="row btn-custom">
+        <button type="button" (click)="onDeleteMovie.emit(movie)" class="m-1 btn btn-dark btn-sm">DELETE</button>
+        <button type="button" (click)="editMovieInfo = true" class="m-1 btn btn-dark btn-sm">EDIT</button>
     </div>
   </div>
+  </div>
 
-  <div *ngIf="editMovieInfo">
-    <h4><b>Title: <input type="text" [(ngModel)]="movie.title" name="title"></b></h4>
-    <p>Genre: <input type="text" [(ngModel)]="movie.genre" name="genre"></p>
-    <p>Release year: <input type="text" [(ngModel)]="movie.releaseYear" name="releaseYear"></p>
-    <p>Length: <input type="text" [(ngModel)]="movie.length" name="length"></p>
-    <p>Description: <input type="text" [(ngModel)]="movie.description" name="description"></p>
-    <button type="submit" class="btn btn-dark btn-sm" (click)="editMovie(movie)">Save</button>
-    <button type="button" class="btn btn-dark btn-sm" (click)="cancelEditSave(movie)">Cancel</button>
+  <div *ngIf="editMovieInfo" class="p-3">
+    <p>Image: <input type="text" [(ngModel)]="movie.image" class="form-control" name="image link"></p>
+    <h4><b>Title: <input type="text" [(ngModel)]="movie.title" class="form-control" name="title"></b></h4>
+    <p>Genre: <input type="text" [(ngModel)]="movie.genre" class="form-control" name="genre"></p>
+    <p>Release year: <input type="text" [(ngModel)]="movie.releaseYear" class="form-control" name="releaseYear"></p>
+    <p>Length: <input type="text" [(ngModel)]="movie.length" class="form-control" name="length"></p>
+    <p>Description: <textarea type="text" [(ngModel)]="movie.description" class="form-control" name="description"></textarea></p>
+    <div class="row justify-content-center p-2">
+      <button type="submit" class="btn btn-dark btn-sm row mr-2" (click)="editMovie(movie)">SAVE</button>
+      <button type="button" class="btn btn-dark btn-sm row ml-2" (click)="cancelEditSave(movie)">CANCEL</button>
+    </div>
   </div>
 </div>
 

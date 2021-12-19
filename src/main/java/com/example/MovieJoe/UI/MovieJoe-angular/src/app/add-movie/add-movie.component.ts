@@ -43,6 +43,7 @@ export class AddMovieComponent implements OnInit {
     this.movie.releaseYear = '';
     this.movie.length = '';
     this.movie.description = '';
+    this.movie.image= '';
   }
 
   loadMoviesFromApi() {

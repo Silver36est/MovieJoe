@@ -1,9 +1,12 @@
 package com.example.MovieJoe;
 
+import com.example.MovieJoe.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackageClasses = UserRepository.class)
 public class MovieJoeApplication {
 
 	public static void main(String[] args) {

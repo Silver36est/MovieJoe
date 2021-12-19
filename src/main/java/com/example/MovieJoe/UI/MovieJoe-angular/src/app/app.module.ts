@@ -12,6 +12,12 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -25,12 +31,18 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
     UserItemComponent,
     AddMovieComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

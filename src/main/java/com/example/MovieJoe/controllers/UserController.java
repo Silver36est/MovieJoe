@@ -1,7 +1,6 @@
 package com.example.MovieJoe.controllers;
 
 
-import com.example.MovieJoe.entities.Movie;
 import com.example.MovieJoe.entities.User;
 import com.example.MovieJoe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

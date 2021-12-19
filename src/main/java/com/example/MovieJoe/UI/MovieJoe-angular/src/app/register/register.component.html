@@ -1,7 +1,10 @@
+
+<!--
 <div class="p-2 text-center">
   <h1>Create your account:</h1>
   <h3 *ngIf="isRegistrationInvalid"><p>Username already exists!</p></h3>
 </div>
+
 
 <form class="p-2 text-center">
   <div class="form-group">
@@ -14,3 +17,29 @@
   </div>
   <button type="submit" class="btn btn-dark" (click)="onSubmit()">Submit</button>
 </form>
+-->
+
+<div class="login-wrapper login-top" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+      <h3 *ngIf="isRegistrationInvalid"><p>Username already exists!</p></h3>
+    </mat-card-header>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" type="text" [(ngModel)]="user.userName" name="userName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="black" class="btn-block" (click)="onSubmit()">Submit</button>
+    </form>
+  </mat-card>
+
+</div>
+
