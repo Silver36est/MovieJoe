@@ -1,25 +1,8 @@
-<!--
-<nav class="navbar navbar-expand-lg navbar-light nav-color">
-  <div class="container-fluid">
-    <a class="navbar-brand font-weight-bold title-size" href="/">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false">
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav font-weight-bold" style="margin-top: 15px;">
-        <a *ngIf="!isLoggedIn" class="nav-link active" aria-current="page" href="register">Register</a>
-        <a *ngIf="!isLoggedIn" class="nav-link active" aria-current="page" href="login">Login</a>
-        <a *ngIf="isLoggedIn" class="nav-link active" aria-current="page" href="home">Home</a>
-      </div>
-    </div>
-  </div>
-</nav>
--->
-
 <div class="navbar-custom">
   <a routerLink="/" class="title-custom">{{title}}</a>
   <a routerLink="/register" *ngIf="!isLoggedIn" class="navbar-items-custom">Register</a>
   <a routerLink="/login" *ngIf="!isLoggedIn" class="navbar-items-custom">Login</a>
-  <a routerLink="/home" *ngIf="isLoggedIn" class="navbar-items-custom">Home</a>
+  <a routerLink="/home" *ngIf="isLoggedIn" class="navbar-items-custom"><b>Home</b></a>
   <a type="button" *ngIf="isLoggedIn" (click)="logOut()" class="navbar-items-custom logout"><b>Log Out</b></a>
 </div>
 

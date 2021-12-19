@@ -5,77 +5,18 @@ body {
   height: 100%;
 }
 
-.user-movie-custom {
-  margin-top: 30px;
-}
-
-.logout {
-  float: right;
-  font-size: large;
-}
-
-.btn-custom {
-  position: absolute;
-  bottom: 0;
-}
-
-.btn-custom {
-  position: absolute;
-  left:35%;
-  width:200px;
-  bottom:10px;
-}
-.info-custom {
-  padding-bottom: 50px;
-}
-
-
-.title-custom {
-  font-size: xx-large;
-  color: black;
-}
-
-.title-custom:hover {
-  color: #e2e2e2;
-}
-
-.navbar-items-custom {
-  margin-left: 15px;
-  color: black;
-  font-size: medium;
-}
-
-.navbar-items-custom:hover {
-  color: #e2e2e2;
-}
-
-.navbar-custom {
-  background: darkcyan;
-  padding: 20px;
-}
-
-.bg-image {
-  height: 100%;
-  width: 100%;
-  color: black;
-}
-
-.nav-color {
-  background: cadetblue;
-  height: 100px;
-  font-size: x-large;
-}
-
-.top-buffer { margin-top: 30px;}
-
-.login-top { margin-top: -200px;}
-
 body {
   background: #e2e2e2;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
 }
+
+.top-buffer {
+  margin-top: 30px;}
+
+.login-top {
+  margin-top: -200px;}
 
 .login-wrapper {
   height: 100%;
