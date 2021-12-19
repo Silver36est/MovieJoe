@@ -1,0 +1,28 @@
+.title-custom {
+  font-size: xx-large;
+  color: black;
+}
+
+.title-custom:hover {
+  color: #e2e2e2;
+}
+
+.navbar-items-custom {
+  margin-left: 15px;
+  color: black;
+  font-size: large;
+}
+
+.navbar-items-custom:hover {
+  color: #e2e2e2;
+}
+
+.navbar-custom {
+  background: darkcyan;
+  padding: 20px;
+}
+
+.logout {
+  float: right;
+  font-size: large;
+}
